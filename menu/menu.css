@@ -1,0 +1,145 @@
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+
+    height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
+    overflow-x: hidden;
+    /* Yatay kaydırmayı engeller #41553d*/
+
+}
+
+.navbar {
+    background-color: #efeee3;
+    height: 100px !important;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-toggler {
+    border: none !important;
+    outline: none;
+}
+
+.navbarMenu_p {
+    color: #41553d;
+}
+
+.line {
+    background-color: #41553d;
+    height: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+    max-height: 25px;
+    opacity: 0.8;
+    width: 1px;
+    text-shadow: none;
+}
+
+.pipe::before {
+    content: '|';
+    font-size: 25px;
+    /* İstediğiniz boyutu ayarlayın */
+    color: #41553d;
+    /* Rengi ayarlayın */
+    margin: 10px;
+    font-weight: lighter;
+
+    /* Daha ince bir çizgi için */
+    /* Boşluk bırakmak için */
+}
+
+.dropdown-menu li a {
+    font-weight: 700 !important;
+}
+
+.language-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    color: #41553d;
+}
+
+.language-dropdown i {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.language-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -20%;
+    background-color: #41553d;
+    color: #41553d;
+    padding: 3px 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 2px;
+    width: 55px;
+    height: 30px;
+    margin: 4px;
+}
+
+.language-dropdown:hover .language-dropdown-menu {
+    display: block;
+}
+
+.language-dropdown:hover i {
+    transform: rotate(-180deg);
+}
+
+.navbar-nav li a {
+    color: #41553d;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b8b69a !important;
+}
+
+/* .dropdown-item {
+    color: #efeee3;
+}
+
+.dropdown-menu .dropdown-item:hover {
+
+    color: #b8b69a !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: transparent !important;
+    color: inherit !important;
+    outline: none !important;
+    box-shadow: none !important;
+} */
+
+.header-icons__social {
+    font-size: 1.4rem;
+    margin-right: -4px;
+    margin-top: 2px;
+}
+
+.header-icons__social a i {
+    color: #41553d;
+    margin-right: 5px;
+    transition: 0.5s all;
+}
+
+.header-icons__social a:hover>i {
+    transform: scale(1.6) rotate(360deg);
+}
+
+.dropdown-menu_language:hover {
+    color: #b8b69a;
+}
