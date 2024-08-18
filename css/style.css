@@ -16,8 +16,15 @@ body {
 }
 
 .navbar {
-    background-color: #41553d;
+    /* background-color: #41553d; */
     height: 100px !important;
+
+    background-color: transparent !important;
+    /* Arka planı tamamen saydam yapar */
+    border: none;
+
+    /* Varsa kenarlıkları kaldırır */
+
 }
 
 .navbar-brand {
@@ -101,6 +108,7 @@ body {
 
 .navbar-nav li a {
     color: #efeee3;
+    margin: 10px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -145,12 +153,12 @@ body {
 }
 
 .carousel {
-    transform: translateY(100px);
-    height: calc(100vh - 100px);
+    /* transform: translateY(100px); */
+    height: 100vh;
 }
 
 .carousel-inner {
-    height: calc(100vh - 100px);
+    height: 100vh;
 }
 
 .carousel-item {

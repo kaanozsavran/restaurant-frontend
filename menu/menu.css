@@ -6,18 +6,43 @@
 
 body {
 
-    height: 100%;
+    /* height: 100%;
     width: 100%;
     margin: 0 !important;
     padding: 0;
+    overflow-x: hidden; */
+    /* Yatay kaydırmayı engeller */
+    /*--------*/
+    background-image: url('../img/backgroundimg.jpg');
+    /* Arka plan resmi */
+    background-size: cover;
+    /* Resmin sayfanın tamamını kaplaması */
+    background-position: center;
+    /* Resmi ortalar */
+    background-repeat: no-repeat;
+    /* Resmin tekrarlanmaması */
+    background-attachment: fixed;
+    /* Sayfa kaydırıldığında arka plan sabit kalır */
+    margin: 0;
+    /* Varsayılan marjinleri kaldırır */
+    padding: 0;
+    /* Varsayılan padding'i kaldırır */
+    height: 100vh;
+    /* Sayfanın tamamını kaplar */
     overflow-x: hidden;
-    /* Yatay kaydırmayı engeller #41553d*/
 
 }
 
 .navbar {
-    background-color: #efeee3;
+    /* background-color: #41553d; */
     height: 100px !important;
+
+    background-color: transparent !important;
+    /* Arka planı tamamen saydam yapar */
+    border: none;
+
+    /* Varsa kenarlıkları kaldırır */
+
 }
 
 .navbar-brand {
@@ -32,11 +57,11 @@ body {
 }
 
 .navbarMenu_p {
-    color: #41553d;
+    color: #efeee3;
 }
 
 .line {
-    background-color: #41553d;
+    background-color: #efeee3;
     height: 100%;
     margin-left: 14px;
     margin-right: 14px;
@@ -50,7 +75,7 @@ body {
     content: '|';
     font-size: 25px;
     /* İstediğiniz boyutu ayarlayın */
-    color: #41553d;
+    color: #efeee3;
     /* Rengi ayarlayın */
     margin: 10px;
     font-weight: lighter;
@@ -67,7 +92,7 @@ body {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    color: #41553d;
+    color: #efeee3;
 }
 
 .language-dropdown i {
@@ -80,7 +105,7 @@ body {
     position: absolute;
     top: 100%;
     left: -20%;
-    background-color: #41553d;
+    background-color: #efeee3;
     color: #41553d;
     padding: 3px 15px;
     font-weight: 700;
@@ -100,7 +125,8 @@ body {
 }
 
 .navbar-nav li a {
-    color: #41553d;
+    color: #efeee3;
+    margin: 10px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -131,7 +157,7 @@ body {
 }
 
 .header-icons__social a i {
-    color: #41553d;
+    color: #efeee3;
     margin-right: 5px;
     transition: 0.5s all;
 }
@@ -142,4 +168,13 @@ body {
 
 .dropdown-menu_language:hover {
     color: #b8b69a;
+}
+
+.banner {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    max-height: 285px;
+    border-radius: 70px;
+    object-fit: cover;
 }
