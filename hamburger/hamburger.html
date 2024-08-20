@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menü</title>
+    <link rel="stylesheet" href="../hamburger/hamburger.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../img/favicon3-1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar navbar-dark  fixed-top ">
+        <div class="container-fluid ">
+            <div class="navBarMenu d-flex justify-content-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+
+
+                </button>
+                <div class="navbarMenu_p  text-center pt-3">
+                    <p>MENU</p>
+                </div>
+            </div>
+
+            <a class="navbar-brand " href="#">
+                <img src="../img/logo1.png" alt="zailogo" width="120" height="120">
+
+            </a>
+
+
+            <div class="d-flex  align-items-center">
+                <div class="header-icons__social">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.tiktok.com " target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="pipe">
+
+
+                </div>
+
+                <div class="language-dropdown">
+                    <p class="mb-0">TR
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <div class="language-dropdown-menu">
+                        EN
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel" style="background-color: #41553d;width: 300px;">
+                <div class="offcanvas-header text-opacity-25">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color:#B3BBB1 ;">ZAI
+                        PUB & BISTRO
+                    </h5>
+
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">ANASAYFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">HAKKIMIZDA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:5500/restaurant-frontend/menu/menu.html">MENÜ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">İLETİŞİM</a>
+                        </li>
+
+                        <!-- <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Menü
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#41553d;">
+                                        <li><a class="dropdown-item" href="#">Pizza</a></li>
+                                        <li><a class="dropdown-item" href="#">Makarna</a></li>
+                                        <li><a class="dropdown-item" href="#">Hamburger</a></li>
+                                        <li><a class="dropdown-item" href="#">Alkollü İçecekler</a></li>
+                                        <li><a class="dropdown-item" href="#">Alkolsüz İçecekler</a></li>
+        
+                                    </ul>
+                                </li> -->
+                    </ul>
+
+                </div>
+                <div class="d-flex  justify-content-start m-3 ">
+                    <div class="header-icons__social ">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i
+                                class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.tiktok.com " target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <div class="pipe ">
+                    </div>
+
+                    <div class="language-dropdown d-flex justify-content-center align-items-center"
+                        style="font-size: 18px;">
+                        <p class="dropdown-menu_language mb-0 ">TR
+
+                        </p>
+                        <p class="dropdown-menu_language mb-0 ms-2">EN
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-lg-12 mb-4 text-center">
+                <img src="../videos/Adsız-tasarım-_4_.gif" class="banner" alt="Indirim Video">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 wrapper ">
+                <div class="icon "><i id="left" class="fa-solid fa-angle-left"></i></div>
+                <ul class="tabs-box">
+                    <li class="tab active">Pizza</li>
+                    <li class="tab">Hamburger</li>
+                    <li class="tab">Makarna</li>
+                    <li class="tab">Salata</li>
+                    <li class="tab">Şişe Bira</li>
+                    <li class="tab">Fıçı Bira</li>
+                    <li class="tab">Kokteyller</li>
+                    <li class="tab">Soğuk İçecekler</li>
+                    <li class="tab">Sıcak İçecekler</li>
+                    <li class="tab">Atıştırmalıklar</li>
+                </ul>
+                <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
+
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger7.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn ">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger3.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn ">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger4.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn ">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger5.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn ">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="../img/hamburger5.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the card's
+                            content.</p>
+                        <a href="#" class="btn ">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer class="text-center p-4">
+        <!-- Logo -->
+        <img src="../img/logo1.png" alt="Logo" class="img-fluid mb-3" style="max-width: 200px;">
+
+
+
+        <!-- Telif Hakkı Yazısı -->
+        <p style="color: #efeee3;">© 2024 Tüm telif hakları saklıdır.</p>
+    </footer>
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="hamburger.js"></script>
+
+
+
+
+</html>

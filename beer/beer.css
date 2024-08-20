@@ -1,0 +1,365 @@
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    /* height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
+    overflow-x: hidden; */
+    /* Yatay kaydırmayı engeller */
+    /*--------*/
+    background-image: url('../img/backgroundimg.jpg');
+    /* Arka plan resmi */
+    background-size: cover;
+    /* Resmin sayfanın tamamını kaplaması */
+    background-position: center;
+    /* Resmi ortalar */
+    background-repeat: no-repeat;
+    /* Resmin tekrarlanmaması */
+    background-attachment: fixed;
+    /* Sayfa kaydırıldığında arka plan sabit kalır */
+    margin: 0;
+    /* Varsayılan marjinleri kaldırır */
+    padding: 0;
+    /* Varsayılan padding'i kaldırır */
+    height: 100vh;
+    /* Sayfanın tamamını kaplar */
+    overflow-x: hidden;
+
+}
+
+.navbar {
+    /* background-color: #41553d; */
+    height: 100px !important;
+
+    background-color: transparent !important;
+    /* Arka planı tamamen saydam yapar */
+    border: none;
+
+    /* Varsa kenarlıkları kaldırır */
+
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-toggler {
+    border: none !important;
+    outline: none;
+}
+
+.navbarMenu_p {
+    color: #efeee3;
+}
+
+.line {
+    background-color: #efeee3;
+    height: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+    max-height: 25px;
+    opacity: 0.8;
+    width: 1px;
+    text-shadow: none;
+}
+
+.pipe::before {
+    content: '|';
+    font-size: 25px;
+    /* İstediğiniz boyutu ayarlayın */
+    color: #efeee3;
+    /* Rengi ayarlayın */
+    margin: 10px;
+    font-weight: lighter;
+
+    /* Daha ince bir çizgi için */
+    /* Boşluk bırakmak için */
+}
+
+.dropdown-menu li a {
+    font-weight: 700 !important;
+}
+
+.language-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    color: #efeee3;
+}
+
+.language-dropdown i {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.language-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -20%;
+    background-color: #efeee3;
+    color: #41553d;
+    padding: 3px 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 2px;
+    width: 55px;
+    height: 30px;
+    margin: 4px;
+}
+
+.language-dropdown:hover .language-dropdown-menu {
+    display: block;
+}
+
+.language-dropdown:hover i {
+    transform: rotate(-180deg);
+}
+
+.navbar-nav li a {
+    color: #efeee3;
+    margin: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b8b69a !important;
+}
+
+/* .dropdown-item {
+    color: #efeee3;
+}
+
+.dropdown-menu .dropdown-item:hover {
+
+    color: #b8b69a !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: transparent !important;
+    color: inherit !important;
+    outline: none !important;
+    box-shadow: none !important;
+} */
+
+.header-icons__social {
+    font-size: 1.4rem;
+    margin-right: -4px;
+    margin-top: 2px;
+}
+
+.header-icons__social a i {
+    color: #efeee3;
+    margin-right: 5px;
+    transition: 0.5s all;
+}
+
+.header-icons__social a:hover>i {
+    transform: scale(1.6) rotate(360deg);
+}
+
+.dropdown-menu_language:hover {
+    color: #b8b69a;
+}
+
+.banner {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 285px;
+    border-radius: 70px;
+    object-fit: cover;
+}
+
+/* ----------------------------*/
+
+
+.swiper-container {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.swiper-slide {
+    background-color: #f1f1f1;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*dragging menu css*/
+/* * {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: lightblue;
+} */
+
+.wrapper {
+    background: transparent;
+    padding: 35px;
+    max-width: 100%;
+    border-radius: 13px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.wrapper .icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.icon:first-child {
+    left: 0;
+    display: none;
+    background: linear-gradient(90deg, transparent 70%, transparent);
+}
+
+.icon:last-child {
+    right: 0;
+    justify-content: flex-end;
+    background: linear-gradient(-90deg, transparent 70%, transparent);
+}
+
+.icon i {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.0rem;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #dda15e;
+    position: absolute;
+    top: 45px;
+}
+
+.icon i:hover {
+    background: #faedcd;
+}
+
+/* .icon:first-child i {
+    margin-left: 15px;
+}
+
+.icon:last-child i {
+    margin-right: 15px;
+} */
+
+.wrapper .tabs-box {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.tabs-box.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+
+}
+
+.tabs-box .tab {
+    font-size: 1.18rem;
+    white-space: nowrap;
+    background: #41553d;
+    padding: 13px 20px;
+    border-radius: 30px;
+    color: #efeee3;
+    border: 1px solid #d8d5f2;
+    cursor: pointer;
+}
+
+.tabs-box.dragging .tab {
+    user-select: none;
+    pointer-events: none;
+}
+
+.tabs-box .tab.active {
+    color: white;
+    background: #dda15e;
+    border-color: transparent;
+}
+
+
+
+
+
+
+
+.card {
+    width: 70%;
+    /* Kart genişliği %90 */
+    height: auto;
+    /* Yüksekliği içeriğe göre ayarlanır */
+    margin: auto;
+    /* Ortalanması için */
+}
+
+.card-img-top {
+    max-height: 330px;
+    /* Görsel boyutunu küçült */
+    object-fit: cover;
+    /* Görselin düzgün kırpılmasını sağlar */
+}
+
+.card-body {
+    background-color: #41553d;
+}
+
+.card-body .btn {
+    background-color: #efeee3;
+    color: #41553d;
+}
+
+.card-body p {
+    color: #efeee3;
+}
+
+.card-body h5 {
+    color: #efeee3;
+}
+
+.card a:hover {
+    background-color: #dda15e;
+    /* Arka plan mavi */
+    color: #efeee3;
+    /* Yazı rengi siyah */
+}
+
+.footerimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

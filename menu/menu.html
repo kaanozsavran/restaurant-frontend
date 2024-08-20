@@ -18,14 +18,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-
+    <script>
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
 </head>
 
 <body>
 
-    <div id="loading-screen">
-        <div class="spinner"></div>
-    </div>
+
+
 
     <nav class="navbar navbar-dark  fixed-top ">
         <div class="container-fluid ">
@@ -98,19 +101,19 @@
                         </li>
 
                         <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Menü
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#41553d;">
-                                <li><a class="dropdown-item" href="#">Pizza</a></li>
-                                <li><a class="dropdown-item" href="#">Makarna</a></li>
-                                <li><a class="dropdown-item" href="#">Hamburger</a></li>
-                                <li><a class="dropdown-item" href="#">Alkollü İçecekler</a></li>
-                                <li><a class="dropdown-item" href="#">Alkolsüz İçecekler</a></li>
-
-                            </ul>
-                        </li> -->
+                                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Menü
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#41553d;">
+                                        <li><a class="dropdown-item" href="#">Pizza</a></li>
+                                        <li><a class="dropdown-item" href="#">Makarna</a></li>
+                                        <li><a class="dropdown-item" href="#">Hamburger</a></li>
+                                        <li><a class="dropdown-item" href="#">Alkollü İçecekler</a></li>
+                                        <li><a class="dropdown-item" href="#">Alkolsüz İçecekler</a></li>
+        
+                                    </ul>
+                                </li> -->
                     </ul>
 
                 </div>
@@ -153,7 +156,9 @@
                 <div class="icon "><i id="left" class="fa-solid fa-angle-left"></i></div>
                 <ul class="tabs-box">
                     <li class="tab active">Pizza</li>
-                    <li class="tab">Hamburger</li>
+                    <li class="tab"
+                        onclick="goToPage('http://127.0.0.1:5500/restaurant-frontend/hamburger/hamburger.html')">
+                        Hamburger</li>
                     <li class="tab">Makarna</li>
                     <li class="tab">Salata</li>
                     <li class="tab">Şişe Bira</li>
@@ -174,7 +179,8 @@
                     <img src="../img/pizzafotocard.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn">Go somewhere</a>
@@ -186,7 +192,8 @@
                     <img src="../img/pizzafotocard2.jpeg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn ">Go somewhere</a>
@@ -200,7 +207,8 @@
                     <img src="../img/pizzafotocard3.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn ">Go somewhere</a>
@@ -212,7 +220,8 @@
                     <img src="../img/pizzafotocard4.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn ">Go somewhere</a>
@@ -226,7 +235,8 @@
                     <img src="../img/pizzacard.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn ">Go somewhere</a>
@@ -238,7 +248,8 @@
                     <img src="../img/pizzafotocard2.jpeg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
                             the card's
                             content.</p>
                         <a href="#" class="btn ">Go somewhere</a>
@@ -259,6 +270,11 @@
         <!-- Telif Hakkı Yazısı -->
         <p style="color: #efeee3;">© 2024 Tüm telif hakları saklıdır.</p>
     </footer>
+
+
+
+
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
