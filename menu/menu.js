@@ -43,3 +43,15 @@ const dragStop = () => {
 tabsBox.addEventListener("mousedown", () => isDragging = true);
 tabsBox.addEventListener("mousemove", dragging);
 tabsBox.addEventListener("mouseup", dragStop);
+
+
+
+
+
+
+// Sayfa tam yüklendikten sonra loading ekranını gizle
+window.addEventListener("load", function () {
+    const loadingScreen = document.getElementById("loading-screen");
+    loadingScreen.style.display = "none";
+});
+

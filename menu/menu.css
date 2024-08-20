@@ -310,3 +310,92 @@ body {
     background: #dda15e;
     border-color: transparent;
 }
+
+
+
+
+
+
+
+.card {
+    width: 70%;
+    /* Kart genişliği %90 */
+    height: auto;
+    /* Yüksekliği içeriğe göre ayarlanır */
+    margin: auto;
+    /* Ortalanması için */
+}
+
+.card-img-top {
+    max-height: 330px;
+    /* Görsel boyutunu küçült */
+    object-fit: cover;
+    /* Görselin düzgün kırpılmasını sağlar */
+}
+
+.card-body {
+    background-color: #41553d;
+}
+
+.card-body .btn {
+    background-color: #efeee3;
+    color: #41553d;
+}
+
+.card-body p {
+    color: #efeee3;
+}
+
+.card-body h5 {
+    color: #efeee3;
+}
+
+.card a:hover {
+    background-color: #dda15e;
+    /* Arka plan mavi */
+    color: #efeee3;
+    /* Yazı rengi siyah */
+}
+
+.footerimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*loadingggg/*
+
+/* Loading ekranı tüm ekranı kaplayacak şekilde ayarlanır */
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Arka plan beyaz ve yarı saydam */
+    z-index: 9999;
+    /* Tüm içeriklerin üstünde görünür */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Spinner animasyonu */
+.spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
