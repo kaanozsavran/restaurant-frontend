@@ -356,10 +356,3 @@ body {
     color: #efeee3;
     /* Yazı rengi siyah */
 }
-
-.footerimg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
