@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAI PUB & BISTRO</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../contact/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -77,7 +77,8 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">ANASAYFA</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="http://127.0.0.1:5500/restaurant-frontend/html/index.html">ANASAYFA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
@@ -91,20 +92,7 @@
                                 href="http://127.0.0.1:5500/restaurant-frontend/contact/contact.html">İLETİŞİM</a>
                         </li>
 
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Menü
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#41553d;">
-                                <li><a class="dropdown-item" href="#">Pizza</a></li>
-                                <li><a class="dropdown-item" href="#">Makarna</a></li>
-                                <li><a class="dropdown-item" href="#">Hamburger</a></li>
-                                <li><a class="dropdown-item" href="#">Alkollü İçecekler</a></li>
-                                <li><a class="dropdown-item" href="#">Alkolsüz İçecekler</a></li>
 
-                            </ul>
-                        </li> -->
                     </ul>
 
                 </div>
@@ -138,46 +126,64 @@
 
 
 
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3"
-                aria-label="Slide 4"></button>
-        </div>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade " data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="carousel-image" style="background-image: url('../img/pasta.jpg');"></div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-image" style="background-image: url('../img/pizza.jpg');"></div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-image" style="background-image: url('../img/hamburger.png');"></div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-image" style="background-image: url('../img/beer.jpg');"></div>
+                <div class="carousel-image" style="background-image: url('../img/pubfoto1.jpg');">
+                    <div class="carousel-caption">
+                        <h1 style="font-weight: bold;">İLETİŞİM</h1>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
+
+    <div class="container contact d-flex justify-content-between" style="background-color: #41553d;">
+        <div class="row">
+            <div class=" contactPart mt-3 p-5">
+                <h1>İletişim</h1>
+                <i class="fa-solid fa-location-dot" style="color: red;"></i>
+                <a class="contactlink" href="https://maps.app.goo.gl/3oEZQ4cYn6ivKEs98">İstanbul,Türkiye</a>
+                <br>
+                <br>
+                <br>
+                <i class="fa-solid fa-phone-volume" style="color: red;"></i>
+                <a class="contactlink" href="">0555 555 55 55</a>
+            </div>
+        </div>
+
+        <div class="row mt-3 maps">
+            <!-- Google Maps Iframe -->
+            <div class="col-12">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d385396.3210907402!2d28.68252805376745!3d41.00537021102761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1724503819552!5m2!1str!2str"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="text-center p-4" style="position: relative;z-index: 2;">
+        <!-- Logo -->
+        <img src="../img/logo1.png" alt="Logo" class="img-fluid mb-3" style="max-width: 200px;">
+
+
+
+        <!-- Telif Hakkı Yazısı -->
+        <p style="color: #efeee3;">© 2024 Tüm telif hakları saklıdır.</p>
+    </footer>
+
+
+
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
+<script src="contact.js"></script>
 
 
 </html>
