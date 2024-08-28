@@ -293,11 +293,16 @@ body {
     font-size: 1.18rem;
     white-space: nowrap;
     background: #41553d;
-    padding: 13px 20px;
     border-radius: 30px;
     color: #efeee3;
     border: 1px solid #d8d5f2;
-    cursor: pointer;
+}
+
+.tabs-box .tab a {
+    text-decoration: none;
+    color: #efeee3;
+    display: block;
+    padding: 13px 20px;
 }
 
 .tabs-box.dragging .tab {
@@ -311,7 +316,10 @@ body {
     border-color: transparent;
 }
 
+.tabs-box .tab:hover {
+    background: #a3b18a;
 
+}
 
 
 
