@@ -188,89 +188,9 @@
             </div>
         </div>
 
-        <div class="row my-5">
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad2.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row my-5">
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad3.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad4.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row my-5">
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad5.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="../img/salad6 .jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn ">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row my-5 wow animate__animated animate__fadeIn">
+            <div id="menu-container" class="row"></div>
+
         </div>
 
 
@@ -296,6 +216,16 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <script src="../js/salad.js"></script>
+<script src="../js/category.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetchAndDisplayItems('hamburger');
+    });
+</script>
+<script src="../animation/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 
 
 
