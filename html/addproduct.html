@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="../css/admindashboard.css" />
-    <title>ZAI Admin Dashboard</title>
+    <title>Ürün Yönetimi</title>
     <link rel="icon" href="../img/favicon3-1.png" type="image/x-icon">
 </head>
 
@@ -20,10 +20,10 @@
                     class="fas fa-user-secret me-2"></i>ZAI ADMIN</div>
             <div class="list-group list-group-flush my-3">
                 <a href="/html/admindashboard.html"
-                    class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                    class="list-group-item list-group-item-action bg-transparent second-text "><i
                         class="fas fa-tachometer-alt me-2"></i>Panel</a>
                 <a href="/html/addproduct.html"
-                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-shopping-basket"></i> Ürün Yönetimi</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-pizza-slice"></i> Pizza</a>
@@ -56,7 +56,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Panel</h2>
+                    <h2 class="fs-2 m-0">Ürün Yönetimi</h2>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -82,21 +82,58 @@
                 </div>
             </nav>
 
-            <div class="container-fluid px-4">
-                <div class="row g-3 my-2" id="table-container">
+            <div class="container mt-5">
+                <h1>Yeni Ürün Ekle</h1>
+                <form>
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Ürün Adı</label>
+                        <input type="text" class="form-control" id="productName" placeholder="Ürün adını girin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productDescription" class="form-label">Açıklama</label>
+                        <textarea class="form-control" id="productDescription" rows="3"
+                            placeholder="Ürün açıklamasını girin"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productPrice" class="form-label">Fiyat</label>
+                        <input type="number" class="form-control" id="productPrice" placeholder="Ürün fiyatını girin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Resim URL'si</label>
+                        <input type="text" class="form-control" id="productImage" placeholder="Resim URL'sini girin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productCategory" class="form-label">Kategori</label>
+                        <select class="form-select" id="productCategory">
+                            <option selected>Kategori Seçin</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="hamburger">Hamburger</option>
+                            <option value="pasta">Makarna</option>
+                            <option value="salad">Salata</option>
+                            <option value="beer">Şişe Bira</option>
+                            <option value="draft beer">Fıçı Bira</option>
+                            <option value="cold drinks">Soğuk İçecekler</option>
+                            <option value="hot drinks">Sıcak İçecekler</option>
+                            <option value="cocktail">Kokteyller</option>
+                            <option value="snack">Atıştırmalık</option>
+                        </select>
 
-                </div>
-
-
-
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="background-color: #41553d ;color: #efeee3;">Ürünü Ekle</button>
+                </form>
             </div>
+
+
+
         </div>
+    </div>
     </div>
     <!-- /#page-content-wrapper -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/table.js"></script>
+
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -106,5 +143,6 @@
         };
     </script>
 </body>
+<script src="../js/addproduct.js"></script>
 
 </html>
