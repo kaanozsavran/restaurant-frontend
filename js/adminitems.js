@@ -1,10 +1,9 @@
 async function fetchAndDisplayItems(category) {
-    const url = `https://localhost:7035/api/MenuItem/category/${category}`; // Correct URL format with template literals
+    const url = `https://localhost:7035/api/MenuItem/category/${category}`;
 
     try {
         const response = await fetch(url);
 
-        // Check if response is ok before parsing JSON
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -21,9 +20,34 @@ async function fetchAndDisplayItems(category) {
     }
 }
 
+async function deleteMenuItem(menuItemID) {
+    const url = `https://localhost:7035/api/MenuItem/delete/${menuItemID}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.isSuccess) {
+            alert('Item deleted successfully');
+            fetchAndDisplayItems('beer'); // Refresh the item list
+        } else {
+            alert(`Error deleting item: ${data.errorMessage}`);
+        }
+    } catch (error) {
+        console.error(`Error deleting item:`, error);
+    }
+}
+
 function displayMenuItems(items) {
-    const container = document.getElementById('menu-container');
-    container.innerHTML = ''; // Clear existing content
+    const container = document.getElementById('item-container');
+    container.innerHTML = '';
 
     items.forEach(item => {
         const card = document.createElement('div');
@@ -35,7 +59,7 @@ function displayMenuItems(items) {
                     <h5 class="card-title">${item.name}</h5>
                     <p class="card-text">${item.description}</p>
                     <p class="card-text">${item.price} TL</p>
-                    <a href="#" class="btn">Order Now</a>
+                    <button class="btn btn-danger" onclick="deleteMenuItem(${item.menuItemID})">Sil</button>
                 </div>
             </div>
         `;
