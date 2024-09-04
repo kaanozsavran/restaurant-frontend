@@ -100,11 +100,18 @@ function displayMenuItems(items) {
                     <!-- Hidden update fields -->
                     <div id="update-fields-${item.menuItemID}" style="display:none; margin-top: 10px;">
                         <input type="text" id="name-${item.menuItemID}" value="${item.name}" class="form-control mb-2" />
-                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'name', document.getElementById('name-${item.menuItemID}').value, '${item.category}')">Güncelle Name</button>
+                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'name', document.getElementById('name-${item.menuItemID}').value, '${item.category}')">Güncelle İsim</button>
                         <br>
                         
                         <input type="number" step="0.01" id="price-${item.menuItemID}" value="${item.price}" class="form-control mb-2" />
-                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'price', document.getElementById('price-${item.menuItemID}').value, '${item.category}')">Güncelle Price</button>
+                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'price', document.getElementById('price-${item.menuItemID}').value, '${item.category}')">Güncelle Fiyat</button>
+                        <br>
+                        <input type="text" id="url-${item.menuItemID}" value="${item.imageUrl}" class="form-control mb-2" />
+                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'imageUrl', document.getElementById('image-${item.menuItemID}').value, '${item.category}')">Güncelle Resim</button>
+                        <br>
+                        <input type="text" id="description-${item.menuItemID}" value="${item.description}" class="form-control mb-2" />
+                        <button class="btn btn-primary mb-2" onclick="updateMenuItem(${item.menuItemID}, 'description', document.getElementById('description-${item.menuItemID}').value, '${item.category}')">Güncelle Açıklama</button>
+                        <br>
                     </div>
                 </div>
             </div>
