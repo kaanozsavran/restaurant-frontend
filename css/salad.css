@@ -326,25 +326,31 @@ body {
 
 
 
-
 .card {
-    width: 70%;
-    /* Kart genişliği %90 */
-    height: auto;
-    /* Yüksekliği içeriğe göre ayarlanır */
-    margin: auto;
-    /* Ortalanması için */
+    width: 100%;
+    /* Ekran genişliğine göre ayar */
+    max-width: 350px;
+    /* Maksimum genişlik ayarla */
+    margin: 10px auto;
+    /* Ortalanmış margin */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Resimlerin taşmasını önler */
 }
 
 .card-img-top {
-    max-height: 330px;
-    /* Görsel boyutunu küçült */
+    width: 100%;
+    max-height: 200px;
+    /* Sabit yükseklik ayarla */
     object-fit: cover;
-    /* Görselin düzgün kırpılmasını sağlar */
+    /* Resmin kart alanını kaplamasını sağlar */
 }
 
 .card-body {
     background-color: #41553d;
+    padding: 15px;
 }
 
 .card-body .btn {
@@ -358,13 +364,13 @@ body {
 
 .card-body h5 {
     color: #efeee3;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .card a:hover {
     background-color: #dda15e;
-    /* Arka plan mavi */
     color: #efeee3;
-    /* Yazı rengi siyah */
 }
 
 .footerimg {

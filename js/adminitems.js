@@ -35,13 +35,15 @@ async function deleteMenuItem(menuItemID, category) {
         const data = await response.json();
 
         if (data.isSuccess) {
-            alert('Item deleted successfully');
-            fetchAndDisplayItems(category); // Refresh the item list based on the category
+
+            alert('Ürün başarıyla silindi!');
+            fetchAndDisplayItems(category); // Refresh the item list
+
         } else {
-            alert(`Error deleting item: ${data.errorMessage}`);
+            alert(`Ürün silme işleminde hata!: ${data.errorMessage}`);
         }
     } catch (error) {
-        console.error(`Error deleting item:`, error);
+        console.error(`Ürün silme işleminde hata!:`, error);
     }
 }
 
@@ -85,9 +87,9 @@ function displayMenuItems(items) {
 
     items.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'col-lg-6';
+        card.className = 'col-lg-6 mb-4';
         card.innerHTML = `
-            <div class="card">
+            <div class="card" >
                 <img src="${item.imageUrl}" class="card-img-top" alt="${item.name}">
                 <div class="card-body">
                     <h5 class="card-title">${item.name}</h5>

@@ -1,0 +1,29 @@
+ .card {
+     height: 100%;
+     /* Kartların yüksekliği tüm içeriği kapsayacak şekilde ayarlanır */
+     display: flex;
+     flex-direction: column;
+ }
+
+ .card-img-top {
+     height: 250px;
+     /* Resim yüksekliği sabitlenir */
+     object-fit: cover;
+     /* Resim, kartı taşmadan tamamen kaplar */
+ }
+
+ .card-body {
+     flex-grow: 1;
+     /* Kart içeriği eşit olarak dağıtılır */
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+
+     /* Kart içindeki öğeler arasında boşluk bırakılır */
+ }
+
+ .card-title,
+ .card-text {
+     margin-bottom: 10px;
+     /* Başlık ve metin arasında boşluk bırakılır */
+ }
