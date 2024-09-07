@@ -15,13 +15,13 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="icon" href="../img/favicon3-1.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
 
 </head>
 
-<body>
+<body data-wow-duration=".2s" ; class="wow animate_animated animate__fadeIn">
 
 
 
@@ -95,21 +95,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/html/contact.html">İLETİŞİM</a>
                         </li>
-
-                        <!-- <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Menü
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#41553d;">
-                                        <li><a class="dropdown-item" href="#">Pizza</a></li>
-                                        <li><a class="dropdown-item" href="#">Makarna</a></li>
-                                        <li><a class="dropdown-item" href="#">Hamburger</a></li>
-                                        <li><a class="dropdown-item" href="#">Alkollü İçecekler</a></li>
-                                        <li><a class="dropdown-item" href="#">Alkolsüz İçecekler</a></li>
-        
-                                    </ul>
-                                </li> -->
                     </ul>
 
                 </div>
@@ -144,7 +129,7 @@
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-lg-12 mb-4 text-center">
-                <img src="../videos/salad2-_online-video-cutter.com_.gif" class="banner" alt="Indirim Video">
+                <img src="../videos/salad.gif" class="banner" alt="Indirim Video">
             </div>
         </div>
         <div class="row">
@@ -221,7 +206,9 @@
         fetchAndDisplayItems('salad');
     });
 </script>
-<script src="../animation/wow.min.js"></script>
+<!-- <script src="../animation/wow.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
 <script>
     new WOW().init();
 </script>

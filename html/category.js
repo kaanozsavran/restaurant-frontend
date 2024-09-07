@@ -49,7 +49,7 @@ function displayMenuItems(items) {
             console.log("Item ID:", itemID); // Debugging log to verify if itemID is correct
             localStorage.setItem('menuItemID', itemID);
 
-            
+
             // Call a function to handle adding the item to the cart
             addItemToCart(itemID);
         });
@@ -81,27 +81,23 @@ function addItemToCart(itemID) {
         },
         body: JSON.stringify(requestBody)
     })
-    .then(response => {
-        if (!response.ok) {
-            console.error("Response status:", response.status);
-            return response.json().then(errorData => {
-                console.error("Error response data:", errorData);
-                throw new Error(errorData.errorMessage || "Unknown error");
-            });
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.isSuccess) {
-            alert("Item added to the cart successfully!");
-            console.log("Order item added successfully:", data);
-        } else {
-            console.error("Error adding order item:", data.errorMessage);
-        }
-    })
-    .catch(error => console.error("Error:", error.message || error));
+        .then(response => {
+            if (!response.ok) {
+                console.error("Response status:", response.status);
+                return response.json().then(errorData => {
+                    console.error("Error response data:", errorData);
+                    throw new Error(errorData.errorMessage || "Unknown error");
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.isSuccess) {
+                alert("Item added to the cart successfully!");
+                console.log("Order item added successfully:", data);
+            } else {
+                console.error("Error adding order item:", data.errorMessage);
+            }
+        })
+        .catch(error => console.error("Error:", error.message || error));
 }
-
-
-
-
