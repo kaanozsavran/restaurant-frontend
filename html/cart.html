@@ -86,13 +86,14 @@
             Object.values(aggregatedItems).forEach(item => {
                 const cartItemCard = document.createElement('div');
                 cartItemCard.className = 'col-lg-4 mb-3'; // Each item will have its own card in a column
-
+                
+                totalPrice = item.quantity * item.itemPrice
                 cartItemCard.innerHTML = `
                     <div class="card h-100">
                         <img src="${item.itemImg}" class="card-img-top" alt="${item.itemName}">
                         <div class="card-body">
                             <h5 class="card-title">${item.itemName}</h5>
-                            <p class="card-text">Price: ${item.itemPrice} TL</p>
+                            <p class="card-text">Price: ${totalPrice} TL</p>
                             <label for="quantity-${item.menuItemID}">Quantity:</label>
                             <input type="number" id="quantity-${item.menuItemID}" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.menuItemID}, this.value)">
                         </div>
@@ -113,6 +114,8 @@
         function removeCartItem(menuItemID) {
             // Handle removing item logic here
         }
+
+        
     </script>
 
 </body>
