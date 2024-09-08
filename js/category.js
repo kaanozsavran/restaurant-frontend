@@ -58,46 +58,111 @@ function displayMenuItems(items) {
 
 function addItemToCart(itemID) {
     if (!itemID) {
-        console.error("Invalid item ID:", itemID); // Check if itemID is valid before proceeding
+        console.error("Invalid item ID:", itemID);
         return;
     }
 
-    // Set the quantity as needed (for now, we set it to 1)
-    const quantity = 1;
+    const quantity = 1; // Default quantity to add
 
-    // Create the request body as expected by your API
-    const requestBody = {
-        menuItemID: parseInt(itemID), // Ensure itemID is an integer
-        quantity: quantity
-    };
-
-    console.log("Request body:", requestBody);
-
-    // Send the POST request to the correct endpoint
-    fetch('https://localhost:7035/api/OrderItem', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-    })
+    // Check if the item is already in the cart
+    fetch(`https://localhost:7035/api/OrderItem/by-item/${itemID}`)
         .then(response => {
             if (!response.ok) {
-                console.error("Response status:", response.status);
-                return response.json().then(errorData => {
-                    console.error("Error response data:", errorData);
-                    throw new Error(errorData.errorMessage || "Unknown error");
-                });
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            if (data.isSuccess) {
-                alert("Item added to the cart successfully!");
-                console.log("Order item added successfully:", data);
+            if (data.isSuccess && data.result && data.result.length > 0) {
+                // If the item is found in the cart, update its quantity
+                const existingItem = data.result[0]; // Ensure we're accessing the first item in the array
+                console.log("Existing item in cart:", existingItem);
+
+                const currentQuantity = existingItem.quantity ? parseInt(existingItem.quantity, 10) : 0;
+                const updatedQuantity = currentQuantity + quantity;
+
+                if (isNaN(updatedQuantity)) {
+                    console.error("Invalid quantity for update:", updatedQuantity);
+                    return;
+                }
+
+                console.log(`Updating item with ID: ${existingItem.orderItemID}, new quantity: ${updatedQuantity}`);
+
+                const requestBody = {
+                    NewQuantity: updatedQuantity // Wrap quantity in an object with correct property name
+                };
+
+                // Update the quantity via PUT request
+                fetch(`https://localhost:7035/api/OrderItem/update-quantity/${existingItem.orderItemID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody) // Send updated quantity in the request body
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(errorData => {
+                                console.error("Error response data:", errorData);
+                                throw new Error(`Failed to update quantity. Status: ${response.status}`);
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(updateData => {
+                        if (updateData.isSuccess) {
+                            alert("Item quantity updated in the cart!");
+                        } else {
+                            console.error("Error updating quantity:", updateData.errorMessage);
+                        }
+                    })
+                    .catch(error => console.error("Error:", error.message || error));
+
             } else {
-                console.error("Error adding order item:", data.errorMessage);
+                // If the item is not found in the cart (empty result array), add it
+                console.log("No existing item found, adding new item to cart.");
+
+                const requestBody = {
+                    menuItemID: parseInt(itemID, 10),
+                    quantity: quantity
+                };
+
+                console.log("Adding new item to cart:", requestBody);
+
+                fetch('https://localhost:7035/api/OrderItem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(errorData => {
+                                console.error("Error response data:", errorData);
+                                throw new Error(`Failed to add item. Status: ${response.status}`);
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.isSuccess) {
+                            alert("Item added to the cart successfully!");
+                        } else {
+                            console.error("Error adding order item:", data.errorMessage);
+                        }
+                    })
+                    .catch(error => console.error("Error:", error.message || error));
             }
         })
-        .catch(error => console.error("Error:", error.message || error));
+        .catch(error => {
+            console.error("Error fetching cart item:", error.message || error);
+        });
 }
+
+
+
+
+
+
+
