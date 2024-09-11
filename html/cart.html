@@ -73,6 +73,7 @@
             });
 
             Object.values(aggregatedItems).forEach(item => {
+
                 const totalPrice = item.quantity * item.itemPrice;
                 
                 const row = `
@@ -87,6 +88,25 @@
                             <button class="btn btn-danger" onclick="removeCartItem(${item.orderItemID})">Sil</button>
                         </td>
                     </tr>
+=======
+                const cartItemCard = document.createElement('div');
+                cartItemCard.className = 'col-lg-4 mb-3'; // Each item will have its own card in a column
+
+                totalPrice = item.quantity * item.itemPrice
+                cartItemCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${item.itemImg}" class="card-img-top" alt="${item.itemName}">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.itemName}</h5>
+                            <p class="card-text">Price: ${totalPrice} TL</p>
+                            <label for="quantity-${item.menuItemID}">Quantity:</label>
+                            <input type="number" id="quantity-${item.menuItemID}" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.menuItemID}, this.value)">
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-danger" onclick="removeCartItem(${item.menuItemID})">Remove</button>
+                        </div>
+                    </div>
+
                 `;
                 cartTableBody.innerHTML += row;
             });
@@ -120,6 +140,7 @@
             });
         }
 
+
     function removeCartItem(orderItemID) {
         const url = `https://localhost:7035/api/OrderItem/${orderItemID}`;
 
@@ -149,6 +170,9 @@
             console.error('Silme işlemi sırasında hata oluştu:', error);
         });
     }
+
+
+
     </script>
 
 </body>
