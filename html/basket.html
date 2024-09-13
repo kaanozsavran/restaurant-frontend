@@ -4,26 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ŞİŞE BİRA</title>
-    <link rel="stylesheet" href="../css/beer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <title>Sepet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cart.css">
     <link rel="icon" href="../img/favicon3-1.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 </head>
 
-<body data-wow-duration=".2s" ; class="wow animate_animated animate__fadeIn">
-
-
-
+<body>
 
     <nav class="navbar navbar-dark  fixed-top ">
         <div class="container-fluid ">
@@ -40,10 +30,7 @@
                 </div>
             </div>
 
-            <a class="navbar-brand " href="#">
-                <img src="../img/logo1.png" alt="zailogo" width="120" height="120">
 
-            </a>
 
 
             <div class="d-flex  align-items-center">
@@ -57,15 +44,12 @@
 
                 </div>
 
-                <div class="language-dropdown">
-                    <p class="mb-0">TR
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </p>
-                    <div class="language-dropdown-menu">
-                        EN
-                    </div>
-                </div>
 
+
+                <div class="header-icons__social">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fas fa-shopping-basket"></i></a>
+
+                </div>
 
             </div>
 
@@ -127,96 +111,45 @@
         </div>
     </nav>
 
-    <div class="container mt-5 pt-5">
-        <div class="row">
-            <div class="col-lg-12 mb-4 text-center">
-                <img src="../videos/beer.gif" class="banner" alt="Indirim Video">
-            </div>
+    <div class="container mt-5 cartDiv">
+        <h1 class="text-center mt-5">SEPETİNİZ</h1>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th>Toplam Fiyat</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody id="cart-table-body"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-end" style="color: #efeee3;">Toplam Tutar:</td>
+                    <td id="cart-total-price" style="color: #efeee3;">0 TL</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="text-center mt-3">
+            <button id="checkout-btn" class="btn btn-success">Ödeme Yap</button>
         </div>
-        <div class="row">
-            <div class="col-lg-12 wrapper ">
-                <div class="icon "><i id="left" class="fa-solid fa-angle-left"></i></div>
-                <ul class="tabs-box">
-                    <li class="tab ">
-                        <a href="/html/menu.html">Pizza</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/hamburger.html">Hamburger</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/makarna.html">Makarna</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/salad.html">Salata</a>
-                    </li>
-                    <li class="tab active">
-                        <a href="/html/beer.html">Şişe Bira</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/draftbeer.html">Fıçı Bira</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/cocktail.html">Kokteyller</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/colddrinks.html">Soğuk İçecekler</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/hotdrinks.html">Sıcak İçecekler</a>
-                    </li>
-                    <li class="tab ">
-                        <a href="/html/atistirmalik.html">Atıştırmalıklar</a>
-                    </li>
-                </ul>
-                <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
-
-            </div>
-        </div>
-
-        <div class="row my-5 wow animate__animated animate__fadeIn">
-
-            <div id="menu-container" class="row"></div>
-
-
-        </div>
-
-
     </div>
 
-    <footer class="text-center p-4">
+
+    <footer class="text-center p-4" style="position: relative;z-index: 2;">
         <!-- Logo -->
         <img src="../img/logo1.png" alt="Logo" class="img-fluid mb-3" style="max-width: 200px;">
 
 
 
         <!-- Telif Hakkı Yazısı -->
-        <p style="color: #efeee3;">© 2024 Tüm telif hakları saklıdır.</p>
     </footer>
-
-
-
-
-
-
 </body>
+<script src="../js/cart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-<script src="../js/category.js"></script>
-<script src="../js/beer.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetchAndDisplayItems('beer');
-    });
-</script>
-<!-- <script src="../animation/wow.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script>
-    new WOW().init();
-</script>
-
-
-
 
 </html>

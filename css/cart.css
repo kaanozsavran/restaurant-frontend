@@ -1,3 +1,198 @@
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+
+    /* height: 100%;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0;
+        overflow-x: hidden; */
+    /* Yatay kaydırmayı engeller */
+    /*--------*/
+    background-image: url('../img/backgroundimg.jpg');
+    /* Arka plan resmi */
+    background-size: cover;
+    /* Resmin sayfanın tamamını kaplaması */
+    background-position: center;
+    /* Resmi ortalar */
+    background-repeat: no-repeat;
+    /* Resmin tekrarlanmaması */
+    background-attachment: fixed;
+    /* Sayfa kaydırıldığında arka plan sabit kalır */
+    margin: 0;
+    /* Varsayılan marjinleri kaldırır */
+    padding: 0;
+    /* Varsayılan padding'i kaldırır */
+    height: 100vh;
+    /* Sayfanın tamamını kaplar */
+    overflow-x: hidden;
+}
+
+.navbar {
+    /* background-color: #41553d; */
+    height: 100px !important;
+
+    background-color: transparent !important;
+    /* Arka planı tamamen saydam yapar */
+    border: none;
+
+    /* Varsa kenarlıkları kaldırır */
+
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-toggler {
+    border: none !important;
+    outline: none;
+}
+
+.navbarMenu_p {
+    color: #efeee3;
+}
+
+.line {
+    background-color: #efeee3;
+    height: 100%;
+    margin-left: 14px;
+    margin-right: 14px;
+    max-height: 25px;
+    opacity: 0.8;
+    width: 1px;
+    text-shadow: none;
+}
+
+.pipe::before {
+    content: '|';
+    font-size: 25px;
+    /* İstediğiniz boyutu ayarlayın */
+    color: #efeee3;
+    /* Rengi ayarlayın */
+    margin: 10px;
+    font-weight: lighter;
+
+    /* Daha ince bir çizgi için */
+    /* Boşluk bırakmak için */
+}
+
+.dropdown-menu li a {
+    font-weight: 700 !important;
+}
+
+.language-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    color: #efeee3;
+}
+
+.language-dropdown i {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.language-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -20%;
+    background-color: #efeee3;
+    color: #41553d;
+    padding: 3px 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 2px;
+    width: 55px;
+    height: 30px;
+    margin: 4px;
+}
+
+.language-dropdown:hover .language-dropdown-menu {
+    display: block;
+}
+
+.language-dropdown:hover i {
+    transform: rotate(-180deg);
+}
+
+.navbar-nav li a {
+    color: #efeee3;
+    margin: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b8b69a !important;
+}
+
+
+.header-icons__social {
+    font-size: 1.4rem;
+    margin-right: -4px;
+    margin-top: 2px;
+}
+
+.header-icons__social a i {
+    color: #efeee3;
+    margin-right: 5px;
+    transition: 0.5s all;
+}
+
+.header-icons__social a:hover>i {
+    transform: scale(1.6) rotate(360deg);
+}
+
+.dropdown-menu_language:hover {
+    color: #b8b69a;
+}
+
+
+
+.cartDiv h1 {
+    color: #efeee3;
+}
+
+table,
+th,
+td {
+    border: 2px solid black !important;
+    /* Mavi kenar çizgisi */
+    background-color: #41553d !important;
+
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead th {
+    color: #efeee3 !important;
+    font-weight: bold !important;
+    font-size: 20px;
+    /* Başlık yazı rengi (Turuncu) */
+}
+
+
+
+.btn {
+    background-color: #41553d;
+    color: #efeee3;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #a3b18a;
+}
+
+.btnDelete:hover {
+    background-color: #a3b18a !important;
+    /* Hover sırasında değişecek arka plan rengi */
+
 }
