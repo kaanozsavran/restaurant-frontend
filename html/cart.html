@@ -24,8 +24,9 @@
             <tbody id="cart-table-body"></tbody>
         </table>
         <div class="text-center mt-3">
-            <button id="checkout-btn" class="btn btn-success">Ödeme Yap</button>
+            <button id="checkout-btn" class="btn btn-success" onclick="createOrder()">Ödeme Yap</button>
         </div>
+        
     </div>
 
     <script>
@@ -147,6 +148,100 @@
         })
         .catch(error => {
             console.error('Silme işlemi sırasında hata oluştu:', error);
+        });
+    }
+
+    function createOrder() {
+    const tableNumber = prompt("Lütfen masa numaranızı girin:");
+
+    if (!tableNumber || isNaN(tableNumber) || tableNumber <= 0) {
+        alert("Geçerli bir masa numarası girin!");
+        return;
+    }
+
+    // Sepet öğelerini al
+    const cartTableBody = document.getElementById('cart-table-body');
+    const rows = cartTableBody.querySelectorAll('tr');
+
+    if (rows.length === 0 || (rows.length === 1 && rows[0].textContent.includes("Sepetiniz boş"))) {
+        alert("Sepetiniz boş!");
+        return;
+    }
+
+    let totalPrice = 0;
+
+    // Sepet öğelerinin toplam fiyatını hesapla
+    rows.forEach(row => {
+        const quantity = row.querySelector('input').value;
+        const priceText = row.querySelector('td:nth-child(2)').innerText;
+        const itemPrice = parseFloat(priceText.replace(' TL', ''));
+
+        if (!isNaN(itemPrice)) {
+            totalPrice += itemPrice * quantity;
+        }
+    });
+
+    const url = 'https://localhost:7035/api/Order';
+    const orderData = {
+        tableNumber: parseInt(tableNumber),
+        totalPrice: totalPrice,
+        orderStatus: "Pending"  // Sipariş durumu, başlangıçta 'Pending' olarak ayarlandı
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.isSuccess) {
+            console.log('Sipariş başarıyla alındı!');
+            clearBasket();  // Sipariş alındıktan sonra sepeti temizle
+        } else {
+            console.error("Sipariş eklenirken hata:", data.errorMessage);
+        }
+    })
+    .catch(error => {
+        console.error('Sipariş ekleme sırasında hata oluştu:', error);
+    });
+}
+
+
+    function clearBasket() {
+        const url = 'https://localhost:7035/api/OrderItem/clear-basket'; // Sepeti temizlemek için API endpoint
+
+        // Fetch API ile DELETE isteği gönderme
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.isSuccess) {
+                console.log('Sepet başarıyla temizlendi!');
+                // Sepet temizlendikten sonra UI'ı güncelle
+                document.getElementById('cart-table-body').innerHTML = '<tr><td colspan="5" class="text-center">Sepetiniz boş.</td></tr>';
+            } else {
+                console.error("Sepeti temizlerken hata:", data.errorMessage);
+            }
+        })
+        .catch(error => {
+            console.error('Sepeti temizlerken hata oluştu:', error);
         });
     }
     </script>
