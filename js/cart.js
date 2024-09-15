@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     fetchCartItems();  // Fetch all items when the page loads
 
     document.getElementById('checkout-btn').addEventListener('click', function () {
@@ -13,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Geçerli bir masa numarası giriniz.");
         }
     });
-
-    fetchCartItems();  // Fetch all items
-
 });
 
 function fetchCartItems() {
@@ -27,17 +23,6 @@ function fetchCartItems() {
             'Content-Type': 'application/json'
         }
     })
-
-    .then(response => response.json())
-    .then(data => {
-        if (data.isSuccess) {
-            displayCartItems(data.result);
-        } else {
-            console.error("Sepet öğeleri alınırken hata:", data.errorMessage);
-        }
-    })
-    .catch(error => console.error("Hata:", error));
-
         .then(response => response.json())
         .then(data => {
             if (data.isSuccess) {
@@ -47,24 +32,15 @@ function fetchCartItems() {
             }
         })
         .catch(error => console.error("Hata:", error));
-
 }
 
 function displayCartItems(items) {
     const cartTableBody = document.getElementById('cart-table-body');
     cartTableBody.innerHTML = '';  // Clear existing table content
 
-
     if (items.length === 0) {
         cartTableBody.innerHTML = '<tr><td colspan="5" class="text-center">Sepetiniz boş.</td></tr>';
         document.getElementById('cart-total-price').innerText = '0 TL';
-
-    let totalCartPrice = 0;  // Toplam fiyatı tutacak değişken
-
-
-    if (items.length === 0) {
-        cartTableBody.innerHTML = '<tr><td colspan="5" class="text-center">Sepetiniz boş.</td></tr>';
-
         return;
     }
 
@@ -78,13 +54,12 @@ function displayCartItems(items) {
         }
     });
 
-
     let totalPrice = 0;
 
     Object.values(aggregatedItems).forEach(item => {
         const itemTotalPrice = item.quantity * item.itemPrice;
         totalPrice += itemTotalPrice;
-        
+
         const row = `
             <tr>
                 <td>${item.itemName}</td>
@@ -102,29 +77,6 @@ function displayCartItems(items) {
     });
 
     document.getElementById('cart-total-price').innerText = totalPrice + ' TL';
-
-    Object.values(aggregatedItems).forEach(item => {
-        const totalPrice = item.quantity * item.itemPrice;
-        totalCartPrice += totalPrice;  // Her ürünün toplam fiyatını ana toplam fiyata ekle
-
-        const row = `
-                    <tr>
-                        <td style="color: #efeee3;">${item.itemName}</td>
-                        <td style="color: #efeee3;">${item.itemPrice} TL</td>
-                        <td>
-                            <input type="number" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.orderItemID}, this.value, this)">
-                        </td>
-                        <td class="total-price" style="color: #efeee3;">${totalPrice} TL</td>
-                        <td>
-                            <button class="btn btn-danger btnDelete" style="background-color: #efeee3;color: #41553d;"onclick="removeCartItem(${item.orderItemID})">Sil</button>
-                        </td>
-                    </tr>
-                `;
-        cartTableBody.innerHTML += row;
-    });
-    document.getElementById('cart-total-price').innerText = `${totalCartPrice} TL`;
-
-
 }
 
 function updateCartItemQuantity(orderItemID, newQuantity, element) {
@@ -138,25 +90,24 @@ function updateCartItemQuantity(orderItemID, newQuantity, element) {
         },
         body: JSON.stringify(data)
     })
+        .then(response => response.json())
+        .then(data => {
+            if (data.isSuccess) {
+                console.log('Ürün adedi başarıyla güncellendi!');
+                const row = element.closest('tr');
+                const itemPrice = parseFloat(row.querySelector('td:nth-child(2)').innerText.replace(' TL', ''));
+                const totalPriceCell = row.querySelector('.total-price');
+                totalPriceCell.innerText = (itemPrice * newQuantity) + ' TL';
 
-    .then(response => response.json())
-    .then(data => {
-        if (data.isSuccess) {
-            console.log('Ürün adedi başarıyla güncellendi!');
-            const row = element.closest('tr');
-            const itemPrice = parseFloat(row.querySelector('td:nth-child(2)').innerText.replace(' TL', ''));
-            const totalPriceCell = row.querySelector('.total-price');
-            totalPriceCell.innerText = (itemPrice * newQuantity) + ' TL';
-            
-            // Update total price
-            updateTotalPrice();
-        } else {
-            console.error("Adet güncellenirken hata:", data.errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Güncelleme sırasında hata oluştu:', error);
-    });
+                // Update total price
+                updateTotalPrice();
+            } else {
+                console.error("Adet güncellenirken hata:", data.errorMessage);
+            }
+        })
+        .catch(error => {
+            console.error('Güncelleme sırasında hata oluştu:', error);
+        });
 }
 
 function removeCartItem(orderItemID) {
@@ -168,23 +119,23 @@ function removeCartItem(orderItemID) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.isSuccess) {
-            console.log('Ürün sepetten başarıyla silindi!');
-            fetchCartItems();
-        } else {
-            console.error("Ürün silinirken hata:", data.errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Silme işlemi sırasında hata oluştu:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.isSuccess) {
+                console.log('Ürün sepetten başarıyla silindi!');
+                fetchCartItems();
+            } else {
+                console.error("Ürün silinirken hata:", data.errorMessage);
+            }
+        })
+        .catch(error => {
+            console.error('Silme işlemi sırasında hata oluştu:', error);
+        });
 }
 
 function updateTotalPrice() {
@@ -218,67 +169,23 @@ function checkoutAndClearBasket(tableNumber) {
         },
         body: JSON.stringify(orderData)
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.isSuccess) {
-            console.log('Sipariş başarıyla oluşturuldu');
-            // Clear basket after successful order creation
-            clearBasket();
-        } else {
-            console.error("Sipariş oluşturulurken hata:", data.errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Sipariş oluşturulurken hata oluştu:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.isSuccess) {
+                console.log('Sipariş başarıyla oluşturuldu');
+                // Clear basket after successful order creation
+                clearBasket();
+            } else {
+                console.error("Sipariş oluşturulurken hata:", data.errorMessage);
+            }
+        })
+        .catch(error => {
+            console.error('Sipariş oluşturulurken hata oluştu:', error);
+        });
 }
 
 function clearBasket() {
     const url = 'https://localhost:7035/api/OrderItem/clear-basket'; // API endpoint to clear the basket
-
-
-        .then(response => response.json())
-        .then(data => {
-            if (data.isSuccess) {
-                console.log('Ürün adedi başarıyla güncellendi!');
-
-                const row = element.closest('tr');
-                const itemPrice = parseFloat(row.querySelector('td:nth-child(2)').innerText.replace(' TL', ''));
-                const totalPriceCell = row.querySelector('.total-price');
-                const newTotalPrice = itemPrice * newQuantity;
-                totalPriceCell.innerText = `${newTotalPrice} TL`;
-
-                // Toplam fiyatı yeniden hesapla
-                calculateTotalCartPrice();
-            } else {
-                console.error("Adet güncellenirken hata:", data.errorMessage);
-            }
-        })
-        .catch(error => {
-            console.error('Güncelleme sırasında hata oluştu:', error);
-        });
-}
-
-
-function calculateTotalCartPrice() {
-    let totalCartPrice = 0;
-    const rows = document.querySelectorAll('#cart-table-body tr');
-
-    rows.forEach(row => {
-        const totalPriceCell = row.querySelector('.total-price');
-        const totalPrice = parseFloat(totalPriceCell.innerText.replace(' TL', ''));
-        totalCartPrice += totalPrice;
-    });
-
-    // Toplam fiyatı güncelle
-    document.getElementById('cart-total-price').innerText = `${totalCartPrice} TL`;
-}
-
-
-function removeCartItem(orderItemID) {
-    const url = `https://localhost:7035/api/OrderItem/${orderItemID}`;
-
-    // DELETE isteği gönder
 
     fetch(url, {
         method: 'DELETE',
@@ -286,28 +193,6 @@ function removeCartItem(orderItemID) {
             'Content-Type': 'application/json'
         }
     })
-
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.isSuccess) {
-            console.log('Sepet başarıyla temizlendi!');
-            // Clear the UI
-            document.getElementById('cart-table-body').innerHTML = '<tr><td colspan="5" class="text-center">Sepetiniz boş.</td></tr>';
-            document.getElementById('cart-total-price').innerText = '0 TL';
-        } else {
-            console.error("Sepeti temizlerken hata:", data.errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Sepeti temizlerken hata oluştu:', error);
-    });
-}
-
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -316,15 +201,15 @@ function removeCartItem(orderItemID) {
         })
         .then(data => {
             if (data.isSuccess) {
-                console.log('Ürün sepetten başarıyla silindi!');
-                // Sepet öğelerini yeniden yükle
-                fetchCartItems();
+                console.log('Sepet başarıyla temizlendi!');
+                // Clear the UI
+                document.getElementById('cart-table-body').innerHTML = '<tr><td colspan="5" class="text-center">Sepetiniz boş.</td></tr>';
+                document.getElementById('cart-total-price').innerText = '0 TL';
             } else {
-                console.error("Ürün silinirken hata:", data.errorMessage);
+                console.error("Sepeti temizlerken hata:", data.errorMessage);
             }
         })
         .catch(error => {
-            console.error('Silme işlemi sırasında hata oluştu:', error);
+            console.error('Sepeti temizlerken hata oluştu:', error);
         });
 }
-
