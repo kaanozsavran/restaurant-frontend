@@ -15,32 +15,34 @@
         <div id="order-details" class="row"></div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tableNumber = urlParams.get('tableNumber');
 
-            if (tableNumber) {
-                document.getElementById('table-number').innerText = tableNumber;
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tableNumber = urlParams.get('tableNumber');
 
-                const apiUrl = `https://localhost:44382/api/Table/GetOrdersByTable/${tableNumber}`;
+        if (tableNumber) {
+            document.getElementById('table-number').innerText = tableNumber;
 
-                fetch(apiUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const orderDetailsContainer = document.getElementById('order-details');
-                        orderDetailsContainer.innerHTML = '';
+            const apiUrl = `https://localhost:44382/api/Table/GetOrdersByTable/${tableNumber}`;
 
-                        if (Array.isArray(data.result)) {
-                            data.result.forEach(order => {
-                                const orderDiv = document.createElement('div');
-                                orderDiv.className = 'col-md-4';
-                                orderDiv.innerHTML = `
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const orderDetailsContainer = document.getElementById('order-details');
+                    orderDetailsContainer.innerHTML = '';
+
+                    if (Array.isArray(data.result)) {
+                        data.result.forEach(order => {
+                            const orderDiv = document.createElement('div');
+                            orderDiv.className = 'col-md-4';
+                            orderDiv.innerHTML = `
                                     <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                         <div>
                                             <h4 class="fs-4">${order.totalPrice}</h4>
@@ -49,20 +51,19 @@
                                         </div>
                                     </div>
                                 `;
-                                orderDetailsContainer.appendChild(orderDiv);
-                            });
-                        } else {
-                            orderDetailsContainer.innerHTML = '<p>Bu masa için herhangi bir sipariş bulunamadı.</p>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
-            } else {
-                console.error('Table number not found in the URL');
-            }
-        });
-    </script>
-</body>
+                            orderDetailsContainer.appendChild(orderDiv);
+                        });
+                    } else {
+                        orderDetailsContainer.innerHTML = '<p>Bu masa için herhangi bir sipariş bulunamadı.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        } else {
+            console.error('Table number not found in the URL');
+        }
+    });
+</script>
 
 </html>

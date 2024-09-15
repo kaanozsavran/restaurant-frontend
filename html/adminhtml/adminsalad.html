@@ -99,36 +99,39 @@
                     <!-- Pizzalar burada listelenecek -->
                 </div>
             </div>
+        </div>
+    </div>
 
-            <script>
-                var el = document.getElementById("wrapper");
-                var toggleButton = document.getElementById("menu-toggle");
 
-                toggleButton.onclick = function () {
-                    el.classList.toggle("toggled");
-                };
-                document.querySelectorAll('.logout-link').forEach(function (element) {
-                    element.addEventListener('click', function (e) {
-                        e.preventDefault(); // Linkin varsayılan davranışını durdur
-
-                        // Kullanıcıya "Çıkmak istediğinize emin misiniz?" sorusunu sor
-                        var confirmLogout = confirm("Çıkmak istediğinize emin misiniz?");
-
-                        // Eğer kullanıcı "Evet" dediyse sekmeyi kapat
-                        if (confirmLogout) {
-                            window.close();
-                        }
-                        // "Hayır" derse hiçbir şey yapma
-                    });
-                });
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../../js/adminitems.js"></script>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    fetchAndDisplayItems('salad');
-                });
-            </script>
 </body>
+<script>
+    var el = document.getElementById("wrapper");
+    var toggleButton = document.getElementById("menu-toggle");
+
+    toggleButton.onclick = function () {
+        el.classList.toggle("toggled");
+    };
+    document.querySelectorAll('.logout-link').forEach(function (element) {
+        element.addEventListener('click', function (e) {
+            e.preventDefault(); // Linkin varsayılan davranışını durdur
+
+            // Kullanıcıya "Çıkmak istediğinize emin misiniz?" sorusunu sor
+            var confirmLogout = confirm("Çıkmak istediğinize emin misiniz?");
+
+            // Eğer kullanıcı "Evet" dediyse sekmeyi kapat
+            if (confirmLogout) {
+                window.close();
+            }
+            // "Hayır" derse hiçbir şey yapma
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/adminitems.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetchAndDisplayItems('salad');
+    });
+</script>
 
 </html>
