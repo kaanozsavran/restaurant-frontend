@@ -32,6 +32,12 @@ body {
     overflow-x: hidden;
 }
 
+
+
+/*--------------navbar css-------------------*/
+
+
+
 .navbar {
     /* background-color: #41553d; */
     height: 100px !important;
@@ -153,10 +159,11 @@ body {
     color: #b8b69a;
 }
 
-
+/* ------------------table css----------------------*/
 
 .cartDiv h1 {
     color: #efeee3;
+    font-weight: bold;
 }
 
 table,

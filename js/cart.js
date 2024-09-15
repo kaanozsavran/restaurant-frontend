@@ -69,7 +69,7 @@ function displayCartItems(items) {
                 </td>
                 <td class="total-price" style="color:#efeee3;">${itemTotalPrice} TL</td>
                 <td>
-                    <button class="btn btn-danger btnDelete" onclick="removeCartItem(${item.orderItemID})">Sil</button>
+                    <button class="btn btn-danger btnDelete" style="background-color:#efeee3;color:#41553d;" onclick="removeCartItem(${item.orderItemID})">Sil</button>
                 </td>
             </tr>
         `;
