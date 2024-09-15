@@ -147,9 +147,9 @@ function addItemToCart(itemID) {
                     })
                     .then(data => {
                         if (data.isSuccess) {
-                            alert("Item added to the cart successfully!");
+                            alert("Ürün başarıyla sepete eklendi!");
                         } else {
-                            console.error("Error adding order item:", data.errorMessage);
+                            console.error("Sepete ürün eklemede hata:", data.errorMessage);
                         }
                     })
                     .catch(error => console.error("Error:", error.message || error));

@@ -62,14 +62,14 @@ function displayCartItems(items) {
 
         const row = `
             <tr>
-                <td>${item.itemName}</td>
-                <td>${item.itemPrice} TL</td>
+                <td style="color:#efeee3;">${item.itemName}</td>
+                <td style="color:#efeee3;">${item.itemPrice} TL</td>
                 <td>
                     <input type="number" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.orderItemID}, this.value, this)">
                 </td>
-                <td class="total-price">${itemTotalPrice} TL</td>
+                <td class="total-price" style="color:#efeee3;">${itemTotalPrice} TL</td>
                 <td>
-                    <button class="btn btn-danger" onclick="removeCartItem(${item.orderItemID})">Sil</button>
+                    <button class="btn btn-danger btnDelete" onclick="removeCartItem(${item.orderItemID})">Sil</button>
                 </td>
             </tr>
         `;
