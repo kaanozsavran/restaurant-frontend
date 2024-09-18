@@ -35,7 +35,7 @@ function displayMenuItems(items) {
                     <h5 class="card-title">${item.name}</h5>
                     <p class="card-text">${item.description}</p>
                     <p class="card-text">${item.price} TL</p>
-                    <button class="order-now-btn btn btn-primary" data-id="${item.menuItemID}">Order Now</button>
+                    <button class="order-now-btn btn btn-primary d-block d-md-none" data-id="${item.menuItemID}">Order Now</button>
                 </div>
             </div>
         `;
