@@ -111,9 +111,9 @@ function addItemToCart(itemID) {
                     })
                     .then(updateData => {
                         if (updateData.isSuccess) {
-                            alert("Item quantity updated in the cart!");
+                            alert("Ürün başarıyla sepete eklendi!");
                         } else {
-                            console.error("Error updating quantity:", updateData.errorMessage);
+                            console.error("Sepete ürün eklemede hata:", updateData.errorMessage);
                         }
                     })
                     .catch(error => console.error("Error:", error.message || error));
