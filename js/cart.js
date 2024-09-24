@@ -151,38 +151,54 @@ function updateTotalPrice() {
 }
 
 function checkoutAndClearBasket(tableNumber) {
-    // Calculate total price
-    const totalPrice = parseFloat(document.getElementById('cart-total-price').innerText.replace(' TL', ''));
+    // Gather all order items (name and quantity) from the cart
+    const rows = document.querySelectorAll('#cart-table-body tr');
 
-    // Create order
-    const createOrderUrl = 'https://localhost:7035/api/Order';
-    const orderData = {
-        tableNumber: tableNumber,
-        totalPrice: totalPrice,
-        orderStatus: 'Pending'
-    };
+    rows.forEach(row => {
+        const itemName = row.querySelector('td:nth-child(1)').innerText;
+        const itemPrice = parseFloat(row.querySelector('td:nth-child(2)').innerText.replace(' TL', ''));
+        const quantity = parseInt(row.querySelector('input[type="number"]').value);
 
-    fetch(createOrderUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderData)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.isSuccess) {
-                console.log('Sipariş başarıyla oluşturuldu');
-                // Clear basket after successful order creation
-                clearBasket();
-            } else {
-                console.error("Sipariş oluşturulurken hata:", data.errorMessage);
-            }
+        // Calculate total price for this item
+        const totalPrice = itemPrice * quantity;
+
+        // Prepare the data for each order item
+        const orderData = {
+            tableNumber: parseInt(tableNumber),
+            
+            totalPrice: totalPrice,
+            itemName: itemName,
+            quantity: quantity,
+            orderStatus: 'Pending'
+        };
+
+        // Send the order for each item separately
+        const createOrderUrl = 'https://localhost:7035/api/Order';
+
+        fetch(createOrderUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
         })
-        .catch(error => {
-            console.error('Sipariş oluşturulurken hata oluştu:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.isSuccess) {
+                    console.log('Sipariş başarıyla oluşturuldu:', itemName);
+                } else {
+                    console.error("Sipariş oluşturulurken hata:", data.errorMessage);
+                }
+            })
+            .catch(error => {
+                console.error('Sipariş oluşturulurken hata oluştu:', error);
+            });
+    });
+
+    // Clear basket after all orders are placed
+    clearBasket();
 }
+
 
 function clearBasket() {
     const url = 'https://localhost:7035/api/OrderItem/clear-basket'; // API endpoint to clear the basket
