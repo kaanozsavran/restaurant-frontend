@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const apiUrl = 'https://localhost:7035/api/Table/GetAllTables'; // Replace with your actual API endpoint
+    const apiUrl = 'https://localhost:7035/api/Table/GetAllTables';
 
     fetch(apiUrl)
         .then(response => {
@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
         })
         .then(data => {
-            // Check if data.result is an array
             if (Array.isArray(data.result)) {
                 const tableContainer = document.getElementById('table-container');
                 tableContainer.innerHTML = '';
