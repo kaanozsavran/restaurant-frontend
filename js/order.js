@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch table number from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const tableNumber = urlParams.get('tableNumber');
-    
+
     // Display the table number in the heading
     const tableNumberElement = document.getElementById('table-number');
     tableNumberElement.textContent = tableNumber;
@@ -70,5 +70,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Handle payment logic here
         alert('Ödeme işlemi gerçekleştiriliyor...');
+    });
+});
+
+// Dropdown öğelerini seçin
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+const paymentMethodButton = document.getElementById('payment-method-button');
+
+// Her bir dropdown öğesine tıklama olay dinleyicisi ekleyin
+dropdownItems.forEach(item => {
+    item.addEventListener('click', function () {
+        const selectedMethod = this.getAttribute('data-value'); // Seçilen yöntemi al
+        paymentMethodButton.textContent = selectedMethod; // Buton metnini güncelle
+        console.log(`Seçilen ödeme yöntemi: ${selectedMethod}`);
     });
 });
