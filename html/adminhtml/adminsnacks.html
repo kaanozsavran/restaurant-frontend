@@ -113,16 +113,13 @@
     };
     document.querySelectorAll('.logout-link').forEach(function (element) {
         element.addEventListener('click', function (e) {
-            e.preventDefault(); // Linkin varsayılan davranışını durdur
+            e.preventDefault();
 
-            // Kullanıcıya "Çıkmak istediğinize emin misiniz?" sorusunu sor
             var confirmLogout = confirm("Çıkmak istediğinize emin misiniz?");
-
-            // Eğer kullanıcı "Evet" dediyse sekmeyi kapat
             if (confirmLogout) {
-                window.close();
+                // Pencereyi kapatmak yerine başka bir sayfaya yönlendirebilirsiniz
+                window.location.href = '/html/login.html'; // Çıkış için uygun bir yönlendirme yapın
             }
-            // "Hayır" derse hiçbir şey yapma
         });
     });
 </script>
