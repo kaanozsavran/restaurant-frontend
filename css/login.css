@@ -1,0 +1,64 @@
+body {
+    background-color: #f8f9fa;
+    /* Açık arka plan */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: #ffffff;
+    /* Beyaz zemin */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.login-header i {
+    color: #41553d;
+    /* Sarı ikon rengi */
+    margin-right: 10px;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.btn-login {
+    background-color: #41553d;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+
+.btn-login:hover {
+    background-color: #b8b69a;
+}
+
+.form-label {
+    color: #555;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
