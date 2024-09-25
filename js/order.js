@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Fetch table number from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const tableNumber = urlParams.get('tableNumber');
+    
+    // Display the table number in the heading
+    const tableNumberElement = document.getElementById('table-number');
+    tableNumberElement.textContent = tableNumber;
 
     const apiUrl = `https://localhost:7035/api/Order/table/${tableNumber}`;
     const orderTableBody = document.getElementById('order-table-body');
