@@ -131,10 +131,13 @@
 
             var confirmLogout = confirm("Çıkmak istediğinize emin misiniz?");
             if (confirmLogout) {
-                window.close();
+                // Pencereyi kapatmak yerine başka bir sayfaya yönlendirebilirsiniz
+                window.location.href = '/html/login.html'; // Çıkış için uygun bir yönlendirme yapın
             }
         });
     });
+
+
 </script>
 
 </html>

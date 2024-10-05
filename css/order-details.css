@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    /* Hücre sınırlarının birleşmesini sağlar */
+    width: 100%;
+    border: 2px solid #000;
+    /* Tablonun genel sınırı */
+}
+
+thead {
+    border-bottom: 2px solid #000;
+    /* Başlıkların altına çizgi ekler */
+}
+
+
+td {
+    border: 2px solid #000;
+    /* Her bir hücre için sınır */
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    /* Başlıklar için arka plan rengi */
+    border-top: 2px solid #000;
+    /* Başlıkların üst sınırına kalın bir çizgi ekler */
+}

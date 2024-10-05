@@ -180,3 +180,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 });
+
+// Dropdown öğelerini seçin
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+const paymentMethodButton = document.getElementById('payment-method-button');
+
+// Her bir dropdown öğesine tıklama olay dinleyicisi ekleyin
+dropdownItems.forEach(item => {
+    item.addEventListener('click', function () {
+        const selectedMethod = this.getAttribute('data-value'); // Seçilen yöntemi al
+        paymentMethodButton.textContent = selectedMethod; // Buton metnini güncelle
+        console.log(`Seçilen ödeme yöntemi: ${selectedMethod}`);
+    });
+});
