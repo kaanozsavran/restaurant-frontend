@@ -9,9 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
         })
         .then(data => {
+            // Hata ayıklama için gelen veriyi konsola yazdır
+            console.log('Gelen veri:', data);
+            
             if (Array.isArray(data.result)) {
                 const tableContainer = document.getElementById('table-container');
-                tableContainer.innerHTML = '';
+                tableContainer.innerHTML = ''; // Önceki içerikleri temizle
 
                 data.result.forEach(table => {
                     const tableDiv = document.createElement('div');
@@ -27,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     tableContainer.appendChild(tableDiv);
                 });
 
-                // Add click event listener to each table item
+                // Her masa öğesine tıklama olay dinleyicisi ekleyin
                 document.querySelectorAll('.table-item').forEach(item => {
                     item.addEventListener('click', function () {
                         const tableNumber = this.getAttribute('data-table-number');
@@ -35,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
             } else {
-                console.error('Result is not an array:', data.result);
+                console.error('Sonuç bir dizi değil:', data.result);
             }
         })
         .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Fetch işlemi sırasında bir sorun oluştu:', error);
         });
 });
